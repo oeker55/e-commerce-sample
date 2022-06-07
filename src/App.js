@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {Routes, Route} from "react-router-dom"
+import CssBaseline from "@mui/material/CssBaseline";
+import GlobalStyles from "@mui/material/GlobalStyles";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 
-function App() {
+import HomePage from './components/pages/HomePage'
+import LaptopsPage from './components/pages/LaptopsPage'
+import AddLaptopPage from './components/pages/AddLaptopPage'
+import OthersPage from "./components/pages/OthersPage";
+
+
+import AppBarComp from "./components/AppBarComp";
+import FooterComp from "./components/FooterComp";
+import HeaderComp from "./components/HeaderComp";
+ 
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+       <GlobalStyles
+        styles={{ ul: { margin: 0, padding: 0, listStyle: "none" } }}
+      />
+      <CssBaseline />
+
+      <AppBarComp />
+      
+      
+      <Routes>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/laptops' element={<LaptopsPage/>}/>
+        <Route path='/laptops/addNewLaptop' element={<AddLaptopPage/>}/>
+        <Route path='/laptops/others' element={<OthersPage/>}/>
+      </Routes>
+
+      
+      <FooterComp />
+      
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
